@@ -108,7 +108,7 @@
         <dl class="spec">
           <div>
             <dt>Budget</dt>
-            <dd>Monthly category groups, assigned and available amounts, To Budget, uncategorized transactions, and overspent alerts. Assign money, move it, and roll categories over from the phone.</dd>
+            <dd>Monthly category groups, assigned and available amounts, To Budget, uncategorized transactions, and overspent alerts. Assign money, move it, roll categories over, hide or show categories, apply templates already authored in Actual, and add notes.</dd>
           </div>
           <div>
             <dt>Spending</dt>
@@ -116,7 +116,7 @@
           </div>
           <div>
             <dt>Accounts</dt>
-            <dd>On-budget, off-budget, and closed, with the order you set on this device.</dd>
+            <dd>On-budget, off-budget, and closed, with the order you set on this device, plus account notes. Account groups appear when the Actual server supports them.</dd>
           </div>
           <div>
             <dt>Reports</dt>
@@ -124,7 +124,11 @@
           </div>
           <div>
             <dt>Rules &amp; payees</dt>
-            <dd>Common Actual payee-rule conditions and field-setting actions stay in sync with the server. Unsupported rule shapes stay visible and read-only so their JSON is never rewritten.</dd>
+            <dd>Common Actual payee-rule conditions, field-setting actions, and imported split rules stay in sync with the server. Split rules stay read-only in the editor. Unsupported shapes stay visible so their JSON is never rewritten.</dd>
+          </div>
+          <div>
+            <dt>Bank Sync</dt>
+            <dd>Link SimpleFIN through your server or a device token, review downloads, then save. Apple Wallet import lives on the same Settings page. Background Bank Sync stays off under Advanced.</dd>
           </div>
           <div>
             <dt>The rest of the device</dt>
@@ -139,9 +143,9 @@
         <div class="prose">
           <h2>What it doesn’t do</h2>
           <ul class="plain">
-            <li>It does not trigger bank-provider imports. Transactions the server or another Actual client already pulled in will arrive through normal sync.</li>
-            <li>Account reconciliation is not in yet, and account lifecycle beyond adding an account is still incomplete.</li>
-            <li>Budget templates exist as an opt-in experiment. They can change many assignments at once — back up first.</li>
+            <li>Bank Sync is SimpleFIN only. Other bank providers still arrive after another Actual client or the server imports them. Background Bank Sync is experimental and off by default.</li>
+            <li>Account reconciliation is not in yet, and closing, renaming, or deleting accounts is still incomplete.</li>
+            <li>Budget templates can be applied, not created or edited. Applying one can change many assignments at once — back up first.</li>
             <li>Actualist is an independent community project. It is not affiliated with or endorsed by Actual Budget.</li>
           </ul>
         </div>
@@ -155,7 +159,7 @@
           <ul class="needs">
             <li>An iPhone on iOS 26 or later</li>
             <li>A running <a href="https://actualbudget.org/docs/install/">Actual Budget server</a> with at least one budget already uploaded for sync — unless you’re only opening the demo</li>
-            <li>The server password, and the budget encryption password if you use one</li>
+            <li>The server password, or OpenID if the server uses it, and the budget encryption password if you use one</li>
             <li>A network path to that server. If it only lives on a VPN or Tailscale, join that network on the phone first</li>
           </ul>
         </div>

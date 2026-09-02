@@ -20,7 +20,7 @@ Then open <http://127.0.0.1:8080/>.
 4. Output directory: `public`.
 5. Attach `actualist.app`.
 
-The domain currently 302s to TestFlight (`https://testflight.apple.com/join/HDG6PcGX`). Point DNS at this Pages project when the site should take over; TestFlight stays linked from the page.
+The site is live at https://actualist.app. TestFlight stays linked from the page (`https://testflight.apple.com/join/HDG6PcGX`).
 
 Optional CLI deploy:
 
