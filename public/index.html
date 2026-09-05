@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Actualist — a native iPhone client for Actual Budget</title>
-  <meta name="description" content="Actualist is a native, local-first iPhone client for Actual Budget. It syncs with your own server, keeps a SQLite copy on the phone, and works offline. Beta on TestFlight.">
+  <meta name="description" content="Actualist is a native, local-first iPhone client for Actual Budget. It syncs with your own server, keeps your budget on the phone, and works offline. Beta on TestFlight.">
   <meta name="theme-color" content="#0A0710">
   <link rel="canonical" href="https://actualist.app/">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -42,14 +42,14 @@
 
     <main id="content">
       <section class="hero">
-        <p class="kicker"><span class="dot" aria-hidden="true"></span> Beta · iOS 26 · GPLv3</p>
+        <p class="kicker"><span class="dot" aria-hidden="true"></span> Beta · iOS 26+ · GPLv3</p>
         <h1>Actualist</h1>
         <p class="lede prose">A native, local-first iPhone client for <a href="https://actualbudget.org/">Actual Budget</a>.</p>
         <div class="prose">
-          <p>It connects to a normal Actual sync server, imports the budget into SQLite on the phone, and reads from that copy. Offline edits sit in an outbox until the server is reachable again. Companion to Actual — not a second backend, and not a webview.</p>
+          <p>Connect to your Actual Budget server and keep your budget on your phone for quick access, even offline. Changes sync when your server is reachable again. Review spending, manage transactions, and plan your month in a native iPhone app.</p>
         </div>
         <p class="actions">
-          <a class="btn" href="https://testflight.apple.com/join/HDG6PcGX">Join the TestFlight</a>
+          <a class="btn" href="https://testflight.apple.com/join/HDG6PcGX">Join TestFlight</a>
           <a href="https://github.com/sporez/actualist">Source on GitHub</a>
         </p>
         <p class="note">The TestFlight build can open a bundled demo budget if you don’t have a server yet.</p>
@@ -96,8 +96,8 @@
       <section id="how">
         <div class="prose">
           <h2>Your server, not ours</h2>
-          <p>Actualist talks to the Actual sync server you already run. There is no Actualist cloud, no analytics SDK, and no developer-operated backend. After the first import, the app opens the local copy first, then syncs Actual CRDT messages in the background.</p>
-          <p>Encrypted budgets unlock on the phone. Sync tokens and keys stay in the iOS Keychain. Budget files live in the app’s private container and are kept out of iPhone and iCloud backups on purpose — the server is the copy that matters once an upload has finished.</p>
+          <p>Actualist talks to the Actual sync server you already run. There is no Actualist cloud, no analytics SDK, and no developer-operated backend. After the first import, the app opens your saved budget immediately and checks for updates in the background. If you configure a SimpleFIN device token, bank downloads connect directly to SimpleFIN.</p>
+          <p>Encrypted budgets unlock on the phone. Sync tokens and keys stay in the iOS Keychain. Budget files and financial widget snapshots are excluded from iPhone and iCloud device backups. Your server can restore changes that have finished syncing; pending changes can be lost if you erase the app or lose the phone.</p>
         </div>
       </section>
 
@@ -116,7 +116,7 @@
           </div>
           <div>
             <dt>Accounts</dt>
-            <dd>On-budget, off-budget, and closed, with the order you set on this device, plus account notes. Account groups appear when the Actual server supports them.</dd>
+            <dd>On-budget, off-budget, and closed, with the order you set on this device, plus account notes. Add accounts directly in the app. Manage groups and move accounts between them when your Actual server supports groups.</dd>
           </div>
           <div>
             <dt>Reports</dt>
@@ -124,11 +124,19 @@
           </div>
           <div>
             <dt>Rules &amp; payees</dt>
-            <dd>Common Actual payee-rule conditions, field-setting actions, and imported split rules stay in sync with the server. Split rules stay read-only in the editor. Unsupported shapes stay visible so their JSON is never rewritten.</dd>
+            <dd>Search, create, edit, and delete supported rules in Settings → Budget &amp; Data, with previews of matching transactions. Imported split rules apply to transactions but remain read-only in the editor.</dd>
           </div>
           <div>
             <dt>Bank Sync</dt>
-            <dd>Link SimpleFIN through your server or a device token, review downloads, then save. Apple Wallet import lives on the same Settings page. Background Bank Sync stays off under Advanced.</dd>
+            <dd>Link SimpleFIN through your server or a device token, review downloads, then save. Apple Wallet import lives on the same Settings page. Optional Background Bank Sync is in Settings → Advanced. It is off by default and downloads and saves changes automatically when enabled.</dd>
+          </div>
+          <div>
+            <dt>History</dt>
+            <dd>Open History from the Budget ⋯ menu to see the last 25 changes made on this device. Review and undo the most recent eligible budget assignment, money move, template application, or transaction change.</dd>
+          </div>
+          <div>
+            <dt>Widgets</dt>
+            <dd>Category and account balances, Needs Attention, Month Overview, Recent Transactions, Net Worth, and Quick Actions. Choose supported actions, accounts, and categories in Edit Widget. Widgets follow your Appearance theme.</dd>
           </div>
           <div>
             <dt>The rest of the device</dt>
@@ -144,8 +152,10 @@
           <h2>What it doesn’t do</h2>
           <ul class="plain">
             <li>Bank Sync is SimpleFIN only. Other bank providers still arrive after another Actual client or the server imports them. Background Bank Sync is experimental and off by default.</li>
-            <li>Account reconciliation is not in yet, and closing, renaming, or deleting accounts is still incomplete.</li>
-            <li>Budget templates can be created and edited, and Apply Template previews the assignments before saving. Some template types, and templates written in a category note, stay view-only. Applying one can change many assignments at once — back up first.</li>
+            <li>Account reconciliation is not available. You can add accounts, but renaming, closing, reopening, and deleting accounts are not yet supported.</li>
+            <li>Create and edit budget templates with optional notes. Saving a template changes its setup; Apply Template separately previews and assigns money. Templates written in category notes and some advanced options remain read-only.</li>
+            <li>Creating, renaming, deleting, and reordering categories still require another Actual client.</li>
+            <li>Some imported rules, including split rules, cannot be edited here.</li>
             <li>Actualist is an independent community project. It is not affiliated with or endorsed by Actual Budget.</li>
           </ul>
         </div>
@@ -170,7 +180,7 @@
           <span class="badge" aria-hidden="true">!</span>
           <div>
             <h2>Beta software, real money</h2>
-            <p>Actualist can modify financial data. Export and verify an <a href="https://actualbudget.org/docs/backup-restore/backup/">Actual backup</a> before you test, and don’t treat the phone as the only copy. Public builds are tagged <code>testflight/v&lt;version&gt;-b&lt;build&gt;</code> so the source matches what you installed. Found a problem? <a href="https://github.com/sporez/actualist/issues/new">Open an issue</a> and attach a diagnostic report from Settings — it strips credentials and amounts.</p>
+            <p>Actualist can modify financial data. Export and verify an <a href="https://actualbudget.org/docs/backup-restore/backup/">Actual backup</a> before you test, and don’t treat the phone as the only copy. Public builds are tagged <code>testflight/v&lt;version&gt;-b&lt;build&gt;</code> so the source matches what you installed. Found a problem? <a href="https://github.com/sporez/actualist/issues/new">Open an issue</a> and attach a report from Settings → Support → Share Diagnostic Report. Review attachments and remove personal information from screenshots before sharing.</p>
           </div>
         </aside>
       </section>
@@ -182,7 +192,7 @@
         <nav aria-label="Footer">
           <a href="https://testflight.apple.com/join/HDG6PcGX">TestFlight</a>
           <a href="https://github.com/sporez/actualist">GitHub</a>
-          <a href="https://github.com/sporez/actualist/blob/main/PRIVACY.md">Privacy</a>
+          <a href="/privacy">Privacy</a>
           <a href="https://github.com/sporez/actualist/blob/main/LICENSE">License</a>
         </nav>
       </div>

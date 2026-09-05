@@ -31,3 +31,14 @@ npx wrangler pages deploy public --project-name actualist
 ## Assets
 
 Screenshots and the app icon are copied from the Actualist repo and resized for the web. If the source shots change, replace `public/assets/*.webp` and `public/assets/icon.png`.
+
+## Public copy
+
+Keep feature and limitation copy in `public/index.html` aligned with the app
+repository's `README.md`. Keep every app-policy paragraph and the effective date
+in `public/privacy.html` aligned with `../actualist/PRIVACY.md`; retain the
+website-specific disclosure separately. The homepage links to `/privacy`.
+
+Review Settings paths, account and category limitations, rule and template
+editing support, widgets, and background Bank Sync when those features change.
+Editing these files does not publish them; deployment is a separate step.
