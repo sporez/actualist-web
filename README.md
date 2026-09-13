@@ -1,6 +1,6 @@
 # actualist.app
 
-Static homepage for [Actualist](https://github.com/sporez/actualist), a native iPhone client for Actual Budget.
+Static homepage for [Actualist](https://github.com/sporez/actualist), a native iPhone and iPad client for Actual Budget.
 
 No build step. The published tree is `public/`.
 
@@ -37,7 +37,9 @@ Screenshots and the app icon are copied from the Actualist repo and resized for 
 Keep feature and limitation copy in `public/index.html` aligned with the app
 repository's `README.md`. Keep every app-policy paragraph and the effective date
 in `public/privacy.html` aligned with `../actualist/PRIVACY.md`; retain the
-website-specific disclosure separately. The homepage links to `/privacy`.
+website-specific disclosure separately. Write privacy as a durable data-flow
+contract, not a feature-by-feature release summary. The homepage links to
+`/privacy`.
 
 Review Settings paths, account and category limitations, rule and template
 editing support, widgets, and background Bank Sync when those features change.

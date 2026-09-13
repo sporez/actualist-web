@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Actualist — a native iPhone client for Actual Budget</title>
-  <meta name="description" content="Actualist is a native, local-first iPhone client for Actual Budget. It syncs with your own server, keeps your budget on the phone, and works offline. Beta on TestFlight.">
+  <title>Actualist — a native iPhone and iPad client for Actual Budget</title>
+  <meta name="description" content="Actualist is a native, local-first iPhone and iPad client for Actual Budget. It syncs with your own server, keeps your budget on your device, and works offline. Beta on TestFlight.">
   <meta name="theme-color" content="#0A0710">
   <link rel="canonical" href="https://actualist.app/">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -13,14 +13,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Actualist">
   <meta property="og:title" content="Actualist">
-  <meta property="og:description" content="A native, local-first iPhone client for Actual Budget.">
+  <meta property="og:description" content="A native, local-first iPhone and iPad client for Actual Budget.">
   <meta property="og:url" content="https://actualist.app/">
   <meta property="og:image" content="https://actualist.app/assets/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Actualist">
-  <meta name="twitter:description" content="A native, local-first iPhone client for Actual Budget.">
+  <meta name="twitter:description" content="A native, local-first iPhone and iPad client for Actual Budget.">
   <meta name="twitter:image" content="https://actualist.app/assets/og.png">
   <link rel="stylesheet" href="/styles.css">
 </head>
@@ -42,11 +42,11 @@
 
     <main id="content">
       <section class="hero">
-        <p class="kicker"><span class="dot" aria-hidden="true"></span> Beta · iOS 26+ · GPLv3</p>
+        <p class="kicker"><span class="dot" aria-hidden="true"></span> Beta · iOS and iPadOS 26+ · GPLv3</p>
         <h1>Actualist</h1>
-        <p class="lede prose">A native, local-first iPhone client for <a href="https://actualbudget.org/">Actual Budget</a>.</p>
+        <p class="lede prose">A native, local-first iPhone and iPad client for <a href="https://actualbudget.org/">Actual Budget</a>.</p>
         <div class="prose">
-          <p>Connect to your Actual Budget server and keep your budget on your phone for quick access, even offline. Changes sync when your server is reachable again. Review spending, manage transactions, and plan your month in a native iPhone app.</p>
+          <p>Connect to your Actual Budget server and keep your budget on your device for quick access, even offline. Changes sync when your server is reachable again. Review spending, manage transactions, and plan your month in a native app.</p>
         </div>
         <p class="actions">
           <a class="btn" href="https://testflight.apple.com/join/HDG6PcGX">Join TestFlight</a>
@@ -97,18 +97,22 @@
         <div class="prose">
           <h2>Your server, not ours</h2>
           <p>Actualist talks to the Actual sync server you already run. There is no Actualist cloud, no analytics SDK, and no developer-operated backend. After the first import, the app opens your saved budget immediately and checks for updates in the background. If you configure a SimpleFIN device token, bank downloads connect directly to SimpleFIN.</p>
-          <p>Encrypted budgets unlock on the phone. Sync tokens and keys stay in the iOS Keychain. Budget files and financial widget snapshots are excluded from iPhone and iCloud device backups. Your server can restore changes that have finished syncing; pending changes can be lost if you erase the app or lose the phone.</p>
+          <p>Encrypted budgets unlock on your device. Sync tokens, unlocked budget keys, and custom request headers stay in the iOS Keychain. Budget files and financial widget snapshots are excluded from local and iCloud device backups. Your server can restore changes that have finished syncing; pending changes can be lost if you erase the app or lose the device.</p>
         </div>
       </section>
 
       <hr class="rule">
 
       <section id="app">
-        <h2>On the phone</h2>
+        <h2>In the app</h2>
         <dl class="spec">
           <div>
             <dt>Budget</dt>
-            <dd>Monthly category groups, assigned and available amounts, To Budget, uncategorized transactions, and overspent alerts. Assign money, move it, roll categories over, hide or show categories, add and edit budget templates, and add notes.</dd>
+            <dd>Envelope and tracking budgets with category groups, uncategorized transactions, and overspending alerts. Envelope budgets show Assigned, Available, and To Budget, with Move Money. Tracking budgets show Budgeted, Balance, income received, and savings summaries. Roll categories over, hide or show them, add and edit templates, and keep notes.</dd>
+          </div>
+          <div>
+            <dt>iPad</dt>
+            <dd>Sidebar navigation, category details, keyboard assignment, and up to five budget months side by side. Compact layouts can use Swipe Between Months for full-width month transitions.</dd>
           </div>
           <div>
             <dt>Spending</dt>
@@ -136,7 +140,11 @@
           </div>
           <div>
             <dt>Widgets</dt>
-            <dd>Category and account balances, Needs Attention, Month Overview, Recent Transactions, Net Worth, and Quick Actions. Choose supported actions, accounts, and categories in Edit Widget. Widgets follow your Appearance theme.</dd>
+            <dd>Category and account balances, Needs Attention, Month Overview, Recent Transactions, Net Worth, and Quick Actions. Choose supported actions, accounts, and categories in Edit Widget. Widgets follow your Appearance theme and budget type.</dd>
+          </div>
+          <div>
+            <dt>Connection &amp; sync</dt>
+            <dd>Password or OpenID sign-in, encrypted budgets, primary and fallback servers, and Custom Headers for servers that require them. Test a connection before saving its Keychain-protected headers.</dd>
           </div>
           <div>
             <dt>The rest of the device</dt>
@@ -153,7 +161,7 @@
           <ul class="plain">
             <li>Bank Sync is SimpleFIN only. Other bank providers still arrive after another Actual client or the server imports them. Background Bank Sync is experimental and off by default.</li>
             <li>Account reconciliation is not available. You can add accounts, but renaming, closing, reopening, and deleting accounts are not yet supported.</li>
-            <li>Create and edit budget templates with optional notes. Saving a template changes its setup; Apply Template separately previews and assigns money. Templates written in category notes and some advanced options remain read-only.</li>
+            <li>Templates written in category notes remain read-only. Some advanced template types and options cannot be edited here.</li>
             <li>Creating, renaming, deleting, and reordering categories still require another Actual client.</li>
             <li>Some imported rules, including split rules, cannot be edited here.</li>
             <li>Actualist is an independent community project. It is not affiliated with or endorsed by Actual Budget.</li>
@@ -167,10 +175,10 @@
         <div class="prose">
           <h2>What you need</h2>
           <ul class="needs">
-            <li>An iPhone on iOS 26 or later</li>
+            <li>An iPhone or iPad running iOS or iPadOS 26 or later</li>
             <li>A running <a href="https://actualbudget.org/docs/install/">Actual Budget server</a> with at least one budget already uploaded for sync — unless you’re only opening the demo</li>
             <li>The server password, or OpenID if the server uses it, and the budget encryption password if you use one</li>
-            <li>A network path to that server. If it only lives on a VPN or Tailscale, join that network on the phone first</li>
+            <li>A network path to that server. If it only lives on a VPN or Tailscale, join that network on the device first</li>
           </ul>
         </div>
       </section>
@@ -180,7 +188,7 @@
           <span class="badge" aria-hidden="true">!</span>
           <div>
             <h2>Beta software, real money</h2>
-            <p>Actualist can modify financial data. Export and verify an <a href="https://actualbudget.org/docs/backup-restore/backup/">Actual backup</a> before you test, and don’t treat the phone as the only copy. Public builds are tagged <code>testflight/v&lt;version&gt;-b&lt;build&gt;</code> so the source matches what you installed. Found a problem? <a href="https://github.com/sporez/actualist/issues/new">Open an issue</a> and attach a report from Settings → Support → Share Diagnostic Report. Review attachments and remove personal information from screenshots before sharing.</p>
+            <p>Actualist can modify financial data. Export and verify an <a href="https://actualbudget.org/docs/backup-restore/backup/">Actual backup</a> before you test, and don’t treat one device as the only copy. Public builds are tagged <code>testflight/v&lt;version&gt;-b&lt;build&gt;</code> so the source matches what you installed. Found a problem? <a href="https://github.com/sporez/actualist/issues/new">Open an issue</a> and attach a report from Settings → Support → Share Diagnostic Report. Review attachments and remove personal information from screenshots before sharing.</p>
           </div>
         </aside>
       </section>
