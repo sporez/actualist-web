@@ -46,3 +46,7 @@ and a link to the app README for full detail. When a limitation changes, update
 its table row. Update the hero's latest-build line (version, date, and
 `testflight/v<version>-b<build>` tag link) with each public TestFlight build.
 Editing these files does not publish them; deployment is a separate step.
+
+`/styles.css` is cached for a day at Cloudflare's edge. Whenever it changes,
+bump the `?v=` on its `<link>` in every HTML page, or visitors get new markup
+with the old stylesheet.
