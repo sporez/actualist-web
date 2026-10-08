@@ -234,10 +234,6 @@ header.site {
   color: var(--faint);
 }
 
-.build::before {
-  content: "Latest build ";
-}
-
 .hero-shots {
   display: grid;
   grid-template-columns: 1fr 1fr;
