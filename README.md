@@ -41,6 +41,8 @@ website-specific disclosure separately. Write privacy as a durable data-flow
 contract, not a feature-by-feature release summary. The homepage links to
 `/privacy`.
 
-Review Settings paths, account and category limitations, rule and template
-editing support, widgets, and background Bank Sync when those features change.
+The homepage stays short: one-line feature summaries, a Yes / Partial table,
+and a link to the app README for full detail. When a limitation changes, update
+its table row. Update the hero's latest-build line (version, date, and
+`testflight/v<version>-b<build>` tag link) with each public TestFlight build.
 Editing these files does not publish them; deployment is a separate step.
