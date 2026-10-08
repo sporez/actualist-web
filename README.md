@@ -43,8 +43,10 @@ contract, not a feature-by-feature release summary. The homepage links to
 
 The homepage stays short: one-line feature summaries, a Yes / Partial table,
 and a link to the app README for full detail. When a limitation changes, update
-its table row. The hero links to GitHub Releases rather than naming a
-version, so nothing needs updating per TestFlight build.
+its table row. The hero's latest-build line is filled in by
+`scripts/update-build.py` from the newest `testflight/*` GitHub release. The
+`Update latest build` workflow runs it every 3 hours and commits any change,
+which redeploys the site. Run it by hand with `python3 scripts/update-build.py`.
 Editing these files does not publish them; deployment is a separate step.
 
 `/styles.css` is cached for a day at Cloudflare's edge. Whenever it changes,
