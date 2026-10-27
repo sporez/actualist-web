@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["BJNL8CJWW6.com.sporez.actualist"],
+        "components": [{ "/": "/t", "comment": "A shared transaction" }]
+      },
+      {
+        "appIDs": ["BJNL8CJWW6.com.sporez.actualist.dev"],
+        "components": [{ "/": "/dev/t", "comment": "A shared transaction (development build)" }]
+      }
+    ]
+  }
+}
