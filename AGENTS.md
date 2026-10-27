@@ -16,6 +16,10 @@ checkout will fail to push or conflict.
   page. Cloudflare caches the stylesheet for a day.
 - Keep the header nav and footer identical across `index.html`, `privacy.html`,
   and `404.html`.
+- Don't hand-edit the text between `<!-- privacy -->` markers in
+  `public/privacy.html`. Change `PRIVACY.md` in the app repo; the workflow
+  copies it here when a build containing it is released (`scripts/update-privacy.py`,
+  README "Privacy page").
 - Don't hand-edit the text between `<!-- build -->` markers. Run
   `python3 scripts/update-build.py` or
   `gh workflow run update-build.yml -R sporez/actualist-web`.

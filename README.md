@@ -35,11 +35,35 @@ Screenshots and the app icon are copied from the Actualist repo and resized for 
 ## Public copy
 
 Keep feature and limitation copy in `public/index.html` aligned with the app
-repository's `README.md`. Keep every app-policy paragraph and the effective date
-in `public/privacy.html` aligned with `../actualist/PRIVACY.md`; retain the
-website-specific disclosure separately. Write privacy as a durable data-flow
-contract, not a feature-by-feature release summary. The homepage links to
-`/privacy`.
+repository's `README.md`. Write privacy as a durable data-flow contract, not a
+feature-by-feature release summary. The homepage links to `/privacy`.
+
+### Privacy page (automatic)
+
+`public/privacy.html` is generated from the app repository's `PRIVACY.md`. Edit
+`PRIVACY.md` in the app repo, never the text between the `<!-- privacy -->`
+markers here.
+
+`scripts/update-privacy.py` reads the newest published `testflight/*` release
+(the same one the build line uses), downloads `PRIVACY.md` at that tag, and
+rewrites the marked block, including the "Effective" date. Because it reads the
+release tag rather than `main`, the site's privacy page changes only when a
+build containing that text is released. Unreleased edits never reach the site.
+
+It converts only what `PRIVACY.md` uses today: `#`/`##` headings, paragraphs,
+**bold**, `code`, and links (repository-relative links point at the file on
+GitHub's `main`). Anything else, such as a list, table, quote or `###`
+heading, stops it with an error and leaves the page unchanged. If you need one,
+extend the converter first.
+
+The `Update latest build` workflow runs it right after `update-build.py`. A
+failed privacy sync still lets the build line commit, then fails the run so the
+error shows up in GitHub's failure notice.
+
+```sh
+python3 scripts/update-privacy.py                            # sync from the newest release
+python3 scripts/update-privacy.py --file ../actualist/PRIVACY.md  # preview unreleased text locally; don't commit it
+```
 
 The homepage stays short: one-line feature summaries, a Yes / Partial table,
 and a link to the app README for full detail. When a limitation changes, update

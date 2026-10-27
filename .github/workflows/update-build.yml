@@ -21,10 +21,24 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/update-build.py
+      # The privacy page follows PRIVACY.md at that same release tag. A failed
+      # conversion leaves the page as it is, still lets the build line commit,
+      # and then fails the run so the failure is noticed.
+      - name: Sync privacy page from that release
+        id: privacy
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/update-privacy.py
       - name: Commit if changed
         run: |
           git diff --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git commit -am "docs: update latest build"
+          git commit -am "docs: update from latest release"
           git push
+      - name: Fail if the privacy page could not be synced
+        if: steps.privacy.outcome == 'failure'
+        run: |
+          echo "update-privacy.py failed; see the 'Sync privacy page' step." >&2
+          exit 1
