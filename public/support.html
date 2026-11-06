@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support — Actualist</title>
+  <meta name="description" content="Get help with Actualist, a native client for Actual Budget.">
+  <meta name="theme-color" content="#0A0710">
+  <!-- Unlinked until the App Store release; remove noindex and add to sitemap.xml then. -->
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://actualist.app/support">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/icon.png" type="image/png" sizes="256x256">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css?v=5">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <div class="wrap">
+    <header class="site">
+      <a class="brand" href="/">
+        <img src="/assets/icon.png" width="32" height="32" alt="">
+        Actualist
+      </a>
+      <nav class="nav" aria-label="Site">
+        <a class="hide-narrow" href="/#features">Features</a>
+        <a href="https://github.com/sporez/actualist">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="content" class="doc prose">
+      <h1>Support</h1>
+
+      <h2>Contact</h2>
+      <p>Email <a href="mailto:support@actualist.app">support@actualist.app</a>. Say which iPhone or iPad you use, your iOS version, and your Actualist version (at the bottom of Settings). Never send passwords, encryption keys, or bank details.</p>
+      <p>A diagnostic report helps find the cause. In Actualist, open Settings → Support → Share Diagnostic Report and attach it. Reports do not include passwords, server addresses, names, or any budget details.</p>
+
+      <h2>Can't sign in</h2>
+      <ul>
+        <li>Check that your server's address opens in Safari on the same device.</li>
+        <li>Use your Actual server password, not your budget's encryption password.</li>
+        <li>If your server is only reachable over a VPN or Tailscale, connect to it first.</li>
+        <li>Use an address that starts with <code>https://</code> for a server outside your home network.</li>
+      </ul>
+
+      <h2>A budget won't open</h2>
+      <p>An encrypted budget needs its separate encryption password. A budget appears in Actualist only after it has been uploaded to your server for sync.</p>
+
+      <h2>Changes aren't showing on other devices</h2>
+      <p>Actualist saves changes on your device first and uploads them when your server is reachable. Open Settings → Connection &amp; Sync to see whether anything is waiting to upload. Before you erase or replace a device, wait until it shows nothing waiting, because changes that were never uploaded can't be recovered.</p>
+
+      <h2>Keep a backup</h2>
+      <p>Actualist works with your real budget. Keep an <a href="https://actualbudget.org/docs/backup-restore/backup/">Actual backup</a> of every budget you use with it.</p>
+
+      <h2>Bugs and feature requests</h2>
+      <p>If you have a GitHub account, you can also <a href="https://github.com/sporez/actualist/issues/new">open an issue</a>. Report security problems privately as described in <a href="https://github.com/sporez/actualist/blob/main/SECURITY.md">SECURITY.md</a>.</p>
+    </main>
+
+    <footer class="site">
+      <div class="row">
+        <strong>Actualist</strong>
+        <nav aria-label="Footer">
+          <a href="https://github.com/sporez/actualist">GitHub</a>
+          <a href="/privacy">Privacy</a>
+          <a href="https://github.com/sporez/actualist/blob/main/LICENSE">License</a>
+        </nav>
+      </div>
+      <p>Copyright © 2026 Neil DeLillo. Source is GPLv3 with an App Store and TestFlight exception. The name and icon are for this project, not for forks.</p>
+      <p>Not affiliated with Actual Budget. This site has no cookies or analytics.</p>
+    </footer>
+  </div>
+</body>
+</html>
