@@ -217,6 +217,25 @@ header.site {
   filter: brightness(1.06);
 }
 
+.store-badge {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.store-badge img {
+  display: block;
+  height: 50px;
+  width: auto;
+}
+
+.beta {
+  margin-top: 1.6rem;
+}
+
+.beta .build {
+  margin-top: 0.35rem;
+}
+
 .note {
   margin: 0;
   color: var(--faint);
@@ -235,7 +254,7 @@ header.site {
 }
 
 .build::before {
-  content: "Latest build ";
+  content: "Latest beta ";
 }
 
 .hero-shots {
